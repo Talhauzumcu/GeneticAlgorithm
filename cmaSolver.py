@@ -46,7 +46,7 @@ class cmaSolver:
         self.generation_count = generation_count
         self.initial_time = initial_time
         self.final_time = final_time
-        self.best_fitness = -9999
+        self.best_fitness = 0
         self.n_workers = n_workers if n_workers is not None else max(1, cpu_count() - 1)
         self.overall_best = None
         self.termination_function = termination_function
@@ -174,8 +174,7 @@ class cmaSolver:
             gen_best.export_json('./CMAsolverJsonResults/') #Save the best individual's JSON data for web server
             
             print(f"Generation {gen_counter} completed in {gen_end_time - gen_start_time:.2f}s")
-            print(f"  Best: {gen_best.fitness:.4f} | Mean: {gen_mean:.4f} | Std: {gen_std:.4f}")
-            print(f"  Gen Best: {self.overall_best.name} with fitness {self.overall_best.fitness:.4f}")
+            print(f"Best Name: {gen_best.name} | Fitness: {gen_best.fitness:.4f} | Mean: {gen_mean:.4f} | Std: {gen_std:.4f}")
             print(f"  CMA-ES sigma: {self.es.sigma:.4f}")
             
             
@@ -185,8 +184,8 @@ class cmaSolver:
                 self.overall_best = gen_best
 
             if self.overall_best:
-                print(f"  Overall Best: {self.overall_best.name} with fitness {self.overall_best.fitness:.4f}")
-            
+                print(f"Overall Best: {self.overall_best.name} with fitness {self.overall_best.fitness:.4f}")
+
             print("-" * 60)
             
             # Check CMA-ES stopping criteria

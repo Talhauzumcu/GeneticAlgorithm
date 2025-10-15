@@ -32,7 +32,7 @@ class geneticSolver:
         self.random = random
         self.initial_time = initial_time
         self.final_time = final_time
-        self.best_fitness = -9999
+        self.best_fitness = 0
         self.n_workers = n_workers if n_workers is not None else max(1, cpu_count() - 1)
         self.overall_best = None
         self.termination_function = termination_function
@@ -80,6 +80,7 @@ class geneticSolver:
             
             json_data = model_controller_instance.prepare_json(results_path, positions_filename, states_filename)
             fitness = pop_object.get_fitness(gen_counter, json_data)
+
             return (json_data, member_count, fitness)
             
         except Exception as e:

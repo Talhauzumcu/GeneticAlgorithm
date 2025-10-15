@@ -12,8 +12,8 @@ def termination_function(model,state):
     return pelvis_ty < 0.25
 
 if __name__ == "__main__":
-    POPULATION_SIZE = 200
-    GENERATION_COUNT = 100
+    POPULATION_SIZE = 250
+    GENERATION_COUNT = 500
     MUTATION_RATE = 0.02
     INTEGRATION_DURATION = 1
     OVERLAP = 5  # overlap between generations (select the best X directly for the next generation)

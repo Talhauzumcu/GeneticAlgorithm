@@ -24,7 +24,7 @@ class Jumper:
     def __init__(self, genom, name=None):
         self.genom = genom
         self.timing = np.linspace(self.START_TIME, self.END_TIME, self.GENE_EXPRESSION_LENGTH)
-        self.fitness = -9999
+        self.fitness = 0
         self.name = name if name is not None else '0_0'
 
     @classmethod
@@ -55,7 +55,7 @@ class Jumper:
         probabilities = fitness_scores / np.sum(fitness_scores)
         new_gen = [jumper for jumper in jumpers[:overlap]]  # Carry over the best individuals directly
         new_gen += [cls.generate_member() for _ in range(random)]  # Introduce random individuals
-        for i in range(population_count - overlap):
+        for i in range(population_count - overlap - random):
             parents = np.random.choice(jumpers, size=2, p=probabilities)
             parent1, parent2 = parents[0], parents[1]
             child_genom = []
@@ -65,8 +65,8 @@ class Jumper:
                 if np.random.random() < mutation_rate:
                     child_param = np.random.uniform(cls.GENOM_RANGE[0], cls.GENOM_RANGE[1], 1).tolist()[0]
                 child_genom.append(child_param)
-            
-            name = f"{cls.PREFIX}_gen{gen_counter}_{i + overlap}"
+
+            name = f"{cls.PREFIX}_gen{gen_counter}_{i + overlap + random}"
             child = cls(child_genom, name=name)
             new_gen.append(child)
 
@@ -80,7 +80,7 @@ class Jumper:
                 json.dump(self.json_data, f, indent=4)
             
     
-    def get_fitness(self, json_data=None):
+    def get_fitness(self, gen_counter, json_data=None):
         if json_data:
             max_height = max(json_data['data']['center_of_mass_Y'])
             jump_height = max_height - json_data['data']['center_of_mass_Y'][0]
@@ -110,7 +110,7 @@ class cmjJumper:
     def __init__(self, genom, name=None):
         self.genom = genom
         self.timing = np.linspace(self.START_TIME, self.END_TIME, self.GENE_EXPRESSION_LENGTH)
-        self.fitness = -9999
+        self.fitness = 0
         self.name = name if name is not None else '0_0'
 
     @classmethod
@@ -169,42 +169,51 @@ class cmjJumper:
 
         if not json_data:
             return 0
-        
+
+        self.fitness = 100  # Start from 100 to avoid zero fitness individuals
+
         weights = {
             'jump_height': 100,
-            'crouch_depth': 100,
-            'torso_cumulative': 3,
-            'minimum_knee_angle': 5}
+            'crouch_depth': 25,
+            'torso_deviation': 2,
+            'minimum_knee_angle': 2}
 
         com_y = json_data['data']['center_of_mass_Y']
         torso_Ox = json_data['data']['torso_Oz'] #Torso medio-lateral orientation
         knee_angle = json_data['joint_angles']['data']['knee_angle_r']  # Right knee angle
-        minimum_knee_angle = min(abs(min(np.rad2deg(knee_angle))), 90)  # Minimum knee flexion angle, capped at 90 degrees
-        
         initial_height = com_y[0]
-        min_height = min(com_y)
+        time = json_data['data']['time']
+        time_threshold_deviation = 0.5  # seconds
+        threshold_index_deviation = next((i for i, t in enumerate(time) if t >= time_threshold_deviation), None)
+        time_threshold_crouch = .3
+        threshold_index_crouch = next((i for i, t in enumerate(time) if t >= time_threshold_crouch), None)
+        torso_deviation = max(abs(np.array(torso_Ox[:threshold_index_deviation])))  # Max deviation from vertical. Only consider first 0.5 seconds
+        min_height = min(com_y[:threshold_index_crouch])
         crouch_depth = abs(initial_height - min_height)
-        jump_height = max(com_y) - initial_height
-        torso_deviation = np.deg2rad(abs(np.array(torso_Ox)))  # Max deviation from vertical
-        torso_cumulative = np.sum(torso_deviation)  # Cumulative deviation over time
+        minimum_knee_angle = min(abs(min(np.rad2deg(knee_angle[:threshold_index_crouch]))), 90)  # Minimum knee flexion angle, capped at 90 degrees
 
-        phase_1 = gen_counter < 30
-        phase_2 = 30 <= gen_counter < 50
-        phase_3 = gen_counter >= 50
+        jump_height = max(com_y) - initial_height
+        # torso_cumulative = np.sum(torso_deviation)  # Cumulative deviation over time
+        phase_1 = gen_counter < 40
+        phase_2 = 40 <= gen_counter < 60
+        phase_3 = gen_counter >= 60
         #Early training phase (learn to crouch)
         if phase_1:
-            self.fitness = crouch_depth * weights['crouch_depth']  # Scale up the crouch depth
-            self.fitness -= torso_cumulative * weights['torso_cumulative']  # Penalize torso lean to learn crouching upright
+            self.fitness += crouch_depth * weights['crouch_depth']  # Scale up the crouch depth
+            self.fitness -= torso_deviation * weights['torso_deviation']  # Penalize torso lean to learn crouching upright
             self.fitness += minimum_knee_angle * weights['minimum_knee_angle']  # reward for knee flexion
-        #Later training phase (learn to jump)
+        #Later training phase (Start rewarding jump height)
         elif phase_2:
-            self.fitness = jump_height * weights['jump_height']  # Scale up the jump height
-        #Final training phase (optmize both)
+            self.fitness += crouch_depth * weights['crouch_depth']  # Scale up the crouch depth
+            self.fitness -= torso_deviation * weights['torso_deviation']  # Penalize torso lean to learn crouching upright
+            self.fitness += minimum_knee_angle * weights['minimum_knee_angle']  # reward for knee flexion
+            self.fitness += jump_height * weights['jump_height']  # Introduce jump height reward
+        # Final training phase (Jump height is the ultimate goal)
         elif phase_3:
-            self.fitness = (crouch_depth + jump_height) * 50  # Balance both objectives
+            self.fitness += jump_height * weights['jump_height'] * 100 # Hacky way of insuring overall score keeps increasing will fix later
 
         # print(f"Min Knee angle score {minimum_knee_angle * weights['minimum_knee_angle']:.3f}, Crouch Depth score (m): {crouch_depth * weights['crouch_depth']:.3f}, "
-        #       f"Jump Height (m): {jump_height * weights['jump_height']:.3f}, torso cumulative {torso_cumulative * weights['torso_cumulative']:.3f}, Fitness: {self.fitness:.3f}")
+        #       f"Jump Height (m): {jump_height * weights['jump_height']:.3f}, torso deviation {torso_deviation * weights['torso_deviation']:.3f}, Fitness: {self.fitness:.3f}")
 
-        return self.fitness
+        return self.fitness if self.fitness > 0 else 0 # Ensure non-negative fitness
         
