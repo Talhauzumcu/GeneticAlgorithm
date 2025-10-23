@@ -143,28 +143,6 @@ cma_solver = cmaSolver(
     sigma0=0.3  # Initial standard deviation
 )
 ```
-
-## Project Structure
-
-```
-.
-├── main.py                      # Main entry point
-├── geneticSolver.py             # Genetic algorithm implementation
-├── cmaSolver.py                 # CMA-ES solver implementation
-├── objects.py                   # Movement type definitions (Jumper, Flipper, etc.)
-├── simulator.py                 # OpenSim simulation wrapper
-├── modelController.py           # Model manipulation utilities
-├── modify_model.py              # Model modification tools
-├── resimulate.py               # Re-simulation utilities
-├── utils.py                     # Helper functions
-├── requirements.txt             # Python dependencies
-├── models/                      # OpenSim model files
-├── initial_population/          # Starting population files
-├── GeneticSolverJsonResults/    # Output results from genetic solver
-├── resimulatedJsonResults/      # Re-simulation results
-└── results/                     # General results directory
-```
-
 ## Output
 
 Results are saved as JSON files containing:
