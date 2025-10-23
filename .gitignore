@@ -7,3 +7,5 @@ cmjCMAsolverJsonResults/
 cmaCmjResults/
 resimulatedJsonResults/
 initial_population/
+opensim.log
+__pycache__/
