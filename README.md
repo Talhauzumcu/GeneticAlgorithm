@@ -1,6 +1,6 @@
 # Genetic Algorithm for Biomechanical Movement Optimization
 
-A Python-based optimization framework using Genetic Algorithms and CMA-ES (Covariance Matrix Adaptation Evolution Strategy) to optimize biomechanical movements in OpenSim models. This project simulates and optimizes muscle activation patterns for various movements including jumping, counter-movement jumps, and flips.
+A Python-based optimization framework using Genetic Algorithms and CMA-ES (Covariance Matrix Adaptation Evolution Strategy) to optimize biomechanical movements in OpenSim models. This project simulates and optimizes muscle activation patterns for various movements including jumping, counter-movement jumps, and flips. This project is developed only for learning purposes and not suitable for research.
 
 ## Features
 
