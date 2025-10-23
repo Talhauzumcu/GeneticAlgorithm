@@ -10,10 +10,6 @@ import numpy as np
 import cma
 
 class cmaSolver:
-    """
-    CMA-ES (Covariance Matrix Adaptation Evolution Strategy) solver.
-    Similar interface to geneticSolver but uses CMA-ES optimization algorithm.
-    """
 
     def __init__(self, 
                  model_path, 
@@ -25,21 +21,7 @@ class cmaSolver:
                  n_workers=None,
                  termination_function=None,
                  sigma0=0.3):
-        """
-        Initialize CMA-ES solver.
-        
-        Args:
-            model_path: Path to the OpenSim model
-            population_object: Class that defines the genome structure (e.g., Jumper)
-            population_size: Population size (lambda in CMA-ES)
-            generation_count: Number of generations to run
-            initial_time: Simulation start time
-            final_time: Simulation end time
-            n_workers: Number of parallel workers (None = auto-detect)
-            termination_function: Optional termination function for simulation
-            sigma0: Initial standard deviation for CMA-ES (exploration vs exploitation)
-        """
-        
+    
         self.model_path = model_path
         self.population_object = population_object
         self.population_size = population_size
@@ -70,7 +52,6 @@ class cmaSolver:
         self.es = cma.CMAEvolutionStrategy(initial_mean, self.sigma0, opts)
         
     def generate_population(self,gen_counter):
-        """Generate population from CMA-ES."""
         genoms = self.es.ask()
         population = []
         for i, genom in enumerate(genoms):
@@ -90,17 +71,6 @@ class cmaSolver:
     
     @staticmethod
     def _evaluate_member(args):
-        """Static method to evaluate a single population member.
-        
-        This method runs in a separate process and simulates one individual.
-        
-        Args:
-            args: Tuple containing (pop_object, model_path, initial_time, 
-                  final_time, gen_counter, member_count, termination_function)
-        
-        Returns:
-            Tuple of (json_data, member_count, fitness) where fitness is the fitness value
-        """
         pop_object, model_path, initial_time, final_time, gen_counter, member_count, termination_function = args
         
         try:

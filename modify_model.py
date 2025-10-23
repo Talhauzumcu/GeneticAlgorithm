@@ -36,7 +36,7 @@ def increase_muscle_strength(model_path, output_path, strength_multiplier=4.0):
 
 if __name__ == "__main__":
     # Model path from main.py
-    input_model = './models/H0918v3_web_squat.osim'
-    output_model = './models/H0918v3_web_squat_5x.osim'
-    
-    increase_muscle_strength(input_model, output_model, strength_multiplier=5.0)
+    input_model = './models/H0918v3_web_backflip_5x.osim'
+    output_model = './models/H0918v3_web_backflip_20x.osim'
+
+    increase_muscle_strength(input_model, output_model, strength_multiplier=4.0)

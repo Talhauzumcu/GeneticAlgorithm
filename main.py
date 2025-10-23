@@ -1,8 +1,6 @@
 import opensim as osim
-import numpy as np
-from simulator import Simulator
 from geneticSolver import geneticSolver
-from objects import Jumper, cmjJumper
+from objects import Jumper, cmjJumper, Flipper
 from cmaSolver import cmaSolver
 
 osim.Logger.setLevelString("Error")
@@ -12,19 +10,21 @@ def termination_function(model,state):
     return pelvis_ty < 0.25
 
 if __name__ == "__main__":
-    POPULATION_SIZE = 250
-    GENERATION_COUNT = 500
+    POPULATION_SIZE = 200
+    GENERATION_COUNT = 1000
     MUTATION_RATE = 0.02
-    INTEGRATION_DURATION = 1
+    INTEGRATION_DURATION = 2
     OVERLAP = 5  # overlap between generations (select the best X directly for the next generation)
-    RANDOM = 5  # number of random individuals to introduce each generation
+    RANDOM = 0  # number of random individuals to introduce each generation
     N_WORKERS = 8  # None = auto-detect (uses cpu_count - 1), or set to specific number
-    model_path = './models/H0918v3_web_cmj_5x.osim'
-    pop_object = cmjJumper  # or Jumper
-
+    model_path = './models/H0918v3_web_squat_5x.osim'
+    pop_object = Jumper  # or Jumper
+    # initial_pop = pop_object.generate_population_from_json(POPULATION_SIZE, folder='./initial_population/') # You can provide an initial population here if desired if None it will be generated randomly
+    initial_pop = None
     genetic_solver = geneticSolver(
         model_path=model_path,
         population_object=pop_object,
+        initial_population=initial_pop,
         population_size=POPULATION_SIZE,
         generation_count=GENERATION_COUNT,
         mutation_rate=MUTATION_RATE,

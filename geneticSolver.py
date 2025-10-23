@@ -13,6 +13,7 @@ class geneticSolver:
     def __init__(self, 
                  model_path, 
                  population_object, 
+                 initial_population,
                  population_size, 
                  generation_count, 
                  mutation_rate, 
@@ -25,6 +26,7 @@ class geneticSolver:
         
         self.model_path = model_path
         self.population_object = population_object
+        self.initial_population = initial_population
         self.population_size = population_size
         self.generation_count = generation_count
         self.mutation_rate = mutation_rate
@@ -38,23 +40,14 @@ class geneticSolver:
         self.termination_function = termination_function
 
     def generate_population(self):
+        if self.initial_population is not None:
+            return self.initial_population
         return [self.population_object.generate_member() for _ in range(self.population_size)]
     
     def crossover_population(self, current_population, gen_counter):
         return self.population_object.crossover(self.population_size, current_population, self.mutation_rate, self.overlap, self.random, gen_counter)
     
     def _evaluate_member(self,args):
-        """Static method to evaluate a single population member.
-        
-        This method runs in a separate process and simulates one individual.
-        
-        Args:
-            args: Tuple containing (pop_object, model_path, initial_time, 
-                  final_time, gen_counter, member_count, termination_function)
-        
-        Returns:
-            Tuple of (json_data, member_count, fitness) where fitness is the fitness value
-        """
         pop_object, model_path, initial_time, final_time, gen_counter, member_count, termination_function = args
         
         try:

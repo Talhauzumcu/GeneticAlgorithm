@@ -498,6 +498,7 @@ class modelController:
         muscles = self.model.getMuscles()
         muscle_names = [muscles.get(i).getName() for i in range(muscles.getSize())]
         json_data['metadata']['muscles'] = muscle_names
+
         return json_data
     
     def save_results(self, output_file_prefix: str, results_dir: str):

@@ -1,0 +1,105 @@
+[2025-10-17 18:21:22.413] [info] Updating Model file from 40500 to latest format...
+[2025-10-17 18:21:22.419] [info] Loaded model H0918v3 from file ./models/H0918v3_web_cmj_5x.osim
+[2025-10-17 18:21:22.420] [warning] Couldn't find file 'sacrum.vtp'.
+[2025-10-17 18:21:22.420] [warning] Couldn't find file 'pelvis.vtp'.
+[2025-10-17 18:21:22.420] [warning] Couldn't find file 'l_pelvis.vtp'.
+[2025-10-17 18:21:22.420] [warning] Couldn't find file 'femur.vtp'.
+[2025-10-17 18:21:22.420] [warning] Couldn't find file 'tibia.vtp'.
+[2025-10-17 18:21:22.420] [warning] Couldn't find file 'fibula.vtp'.
+[2025-10-17 18:21:22.420] [warning] Couldn't find file 'talus.vtp'.
+[2025-10-17 18:21:22.420] [warning] Couldn't find file 'bofoot.vtp'.
+[2025-10-17 18:21:22.421] [warning] Couldn't find file 'foot.vtp'.
+[2025-10-17 18:21:22.421] [warning] Couldn't find file 'l_femur.vtp'.
+[2025-10-17 18:21:22.421] [warning] Couldn't find file 'l_tibia.vtp'.
+[2025-10-17 18:21:22.421] [warning] Couldn't find file 'l_fibula.vtp'.
+[2025-10-17 18:21:22.421] [warning] Couldn't find file 'l_talus.vtp'.
+[2025-10-17 18:21:22.421] [warning] Couldn't find file 'l_bofoot.vtp'.
+[2025-10-17 18:21:22.421] [warning] Couldn't find file 'l_foot.vtp'.
+[2025-10-17 18:21:22.421] [warning] Couldn't find file 'hat_spine.vtp'.
+[2025-10-17 18:21:22.422] [warning] Couldn't find file 'hat_jaw.vtp'.
+[2025-10-17 18:21:22.422] [warning] Couldn't find file 'hat_skull.vtp'.
+[2025-10-17 18:21:22.422] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2025-10-17 18:28:12.047] [info] Updating Model file from 40500 to latest format...
+[2025-10-17 18:28:12.053] [info] Loaded model H0918v3 from file ./models/H0918v3_web_cmj_5x.osim
+[2025-10-17 18:28:12.053] [warning] Couldn't find file 'sacrum.vtp'.
+[2025-10-17 18:28:12.053] [warning] Couldn't find file 'pelvis.vtp'.
+[2025-10-17 18:28:12.054] [warning] Couldn't find file 'l_pelvis.vtp'.
+[2025-10-17 18:28:12.054] [warning] Couldn't find file 'femur.vtp'.
+[2025-10-17 18:28:12.054] [warning] Couldn't find file 'tibia.vtp'.
+[2025-10-17 18:28:12.054] [warning] Couldn't find file 'fibula.vtp'.
+[2025-10-17 18:28:12.054] [warning] Couldn't find file 'talus.vtp'.
+[2025-10-17 18:28:12.054] [warning] Couldn't find file 'bofoot.vtp'.
+[2025-10-17 18:28:12.054] [warning] Couldn't find file 'foot.vtp'.
+[2025-10-17 18:28:12.054] [warning] Couldn't find file 'l_femur.vtp'.
+[2025-10-17 18:28:12.054] [warning] Couldn't find file 'l_tibia.vtp'.
+[2025-10-17 18:28:12.055] [warning] Couldn't find file 'l_fibula.vtp'.
+[2025-10-17 18:28:12.055] [warning] Couldn't find file 'l_talus.vtp'.
+[2025-10-17 18:28:12.055] [warning] Couldn't find file 'l_bofoot.vtp'.
+[2025-10-17 18:28:12.055] [warning] Couldn't find file 'l_foot.vtp'.
+[2025-10-17 18:28:12.055] [warning] Couldn't find file 'hat_spine.vtp'.
+[2025-10-17 18:28:12.055] [warning] Couldn't find file 'hat_jaw.vtp'.
+[2025-10-17 18:28:12.055] [warning] Couldn't find file 'hat_skull.vtp'.
+[2025-10-17 18:28:12.055] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2025-10-19 07:13:04.978] [info] Updating Model file from 40500 to latest format...
+[2025-10-19 07:13:04.988] [info] Loaded model H0918v3 from file ./models/H0918v3_web_backflip_5x.osim
+[2025-10-19 07:13:04.989] [warning] Couldn't find file 'sacrum.vtp'.
+[2025-10-19 07:13:04.989] [warning] Couldn't find file 'pelvis.vtp'.
+[2025-10-19 07:13:04.989] [warning] Couldn't find file 'l_pelvis.vtp'.
+[2025-10-19 07:13:04.989] [warning] Couldn't find file 'femur.vtp'.
+[2025-10-19 07:13:04.989] [warning] Couldn't find file 'tibia.vtp'.
+[2025-10-19 07:13:04.989] [warning] Couldn't find file 'fibula.vtp'.
+[2025-10-19 07:13:04.989] [warning] Couldn't find file 'talus.vtp'.
+[2025-10-19 07:13:04.990] [warning] Couldn't find file 'bofoot.vtp'.
+[2025-10-19 07:13:04.990] [warning] Couldn't find file 'foot.vtp'.
+[2025-10-19 07:13:04.990] [warning] Couldn't find file 'l_femur.vtp'.
+[2025-10-19 07:13:04.990] [warning] Couldn't find file 'l_tibia.vtp'.
+[2025-10-19 07:13:04.990] [warning] Couldn't find file 'l_fibula.vtp'.
+[2025-10-19 07:13:04.990] [warning] Couldn't find file 'l_talus.vtp'.
+[2025-10-19 07:13:04.990] [warning] Couldn't find file 'l_bofoot.vtp'.
+[2025-10-19 07:13:04.991] [warning] Couldn't find file 'l_foot.vtp'.
+[2025-10-19 07:13:04.991] [warning] Couldn't find file 'hat_spine.vtp'.
+[2025-10-19 07:13:04.991] [warning] Couldn't find file 'hat_jaw.vtp'.
+[2025-10-19 07:13:04.991] [warning] Couldn't find file 'hat_skull.vtp'.
+[2025-10-19 07:13:04.991] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2025-10-19 21:25:49.675] [info] Updating Model file from 40500 to latest format...
+[2025-10-19 21:25:49.684] [info] Loaded model H0918v3 from file ./models/H0918v3_web_backflip_5x.osim
+[2025-10-19 21:25:49.685] [warning] Couldn't find file 'sacrum.vtp'.
+[2025-10-19 21:25:49.685] [warning] Couldn't find file 'pelvis.vtp'.
+[2025-10-19 21:25:49.685] [warning] Couldn't find file 'l_pelvis.vtp'.
+[2025-10-19 21:25:49.685] [warning] Couldn't find file 'femur.vtp'.
+[2025-10-19 21:25:49.685] [warning] Couldn't find file 'tibia.vtp'.
+[2025-10-19 21:25:49.685] [warning] Couldn't find file 'fibula.vtp'.
+[2025-10-19 21:25:49.685] [warning] Couldn't find file 'talus.vtp'.
+[2025-10-19 21:25:49.685] [warning] Couldn't find file 'bofoot.vtp'.
+[2025-10-19 21:25:49.686] [warning] Couldn't find file 'foot.vtp'.
+[2025-10-19 21:25:49.686] [warning] Couldn't find file 'l_femur.vtp'.
+[2025-10-19 21:25:49.686] [warning] Couldn't find file 'l_tibia.vtp'.
+[2025-10-19 21:25:49.686] [warning] Couldn't find file 'l_fibula.vtp'.
+[2025-10-19 21:25:49.686] [warning] Couldn't find file 'l_talus.vtp'.
+[2025-10-19 21:25:49.686] [warning] Couldn't find file 'l_bofoot.vtp'.
+[2025-10-19 21:25:49.686] [warning] Couldn't find file 'l_foot.vtp'.
+[2025-10-19 21:25:49.686] [warning] Couldn't find file 'hat_spine.vtp'.
+[2025-10-19 21:25:49.687] [warning] Couldn't find file 'hat_jaw.vtp'.
+[2025-10-19 21:25:49.687] [warning] Couldn't find file 'hat_skull.vtp'.
+[2025-10-19 21:25:49.687] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2025-10-20 15:51:42.920] [info] Updating Model file from 40500 to latest format...
+[2025-10-20 15:51:42.927] [info] Loaded model H0918v3 from file ./models/H0918v3_web_backflip_5x.osim
+[2025-10-20 15:51:42.928] [warning] Couldn't find file 'sacrum.vtp'.
+[2025-10-20 15:51:42.928] [warning] Couldn't find file 'pelvis.vtp'.
+[2025-10-20 15:51:42.928] [warning] Couldn't find file 'l_pelvis.vtp'.
+[2025-10-20 15:51:42.928] [warning] Couldn't find file 'femur.vtp'.
+[2025-10-20 15:51:42.928] [warning] Couldn't find file 'tibia.vtp'.
+[2025-10-20 15:51:42.928] [warning] Couldn't find file 'fibula.vtp'.
+[2025-10-20 15:51:42.928] [warning] Couldn't find file 'talus.vtp'.
+[2025-10-20 15:51:42.928] [warning] Couldn't find file 'bofoot.vtp'.
+[2025-10-20 15:51:42.929] [warning] Couldn't find file 'foot.vtp'.
+[2025-10-20 15:51:42.929] [warning] Couldn't find file 'l_femur.vtp'.
+[2025-10-20 15:51:42.929] [warning] Couldn't find file 'l_tibia.vtp'.
+[2025-10-20 15:51:42.929] [warning] Couldn't find file 'l_fibula.vtp'.
+[2025-10-20 15:51:42.929] [warning] Couldn't find file 'l_talus.vtp'.
+[2025-10-20 15:51:42.929] [warning] Couldn't find file 'l_bofoot.vtp'.
+[2025-10-20 15:51:42.929] [warning] Couldn't find file 'l_foot.vtp'.
+[2025-10-20 15:51:42.929] [warning] Couldn't find file 'hat_spine.vtp'.
+[2025-10-20 15:51:42.929] [warning] Couldn't find file 'hat_jaw.vtp'.
+[2025-10-20 15:51:42.929] [warning] Couldn't find file 'hat_skull.vtp'.
+[2025-10-20 15:51:42.929] [warning] Couldn't find file 'hat_ribs.vtp'.
